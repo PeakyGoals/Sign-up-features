@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Peaky Plans</title>
+</head>
+<body>
+    <div class="all">
+        <div class="container">
+            <div class="peaky titles">
+                <h1>My Peaky Goals</h1>
+                <hr>
+            </div>
+            <div>
+                <div id="edit_buttons">
+                    <form action="./new_goal.html">
+                        <button class="button2">Set a New Goal</button>
+                    </form>
+                    <form action="./previous_goals.html">
+                        <button class="button2">View Completed Goals</button>
+                    </form>
+                </div>
+            </div>
+            <div id="display_goals">
+                <div class="goal" onclick="location.href='view_goal.html'">
+                    <div class="view">👁</div>
+                    <div class="name">Watch Peaky Blinders</div>
+                    <div class="date">30/02/23</div>
+                </div>
+                <div class="goal" onclick="location.href='view_goal.html'">
+                    <div class="view">👁</div>
+                    <div class="name">Read Spanish Harry Potter</div>
+                    <div class="date">30/02/23</div>
+                </div>
+                <div class="goal" onclick="location.href='view_goal.html'">
+                    <div class="view">👁</div>
+                    <div class="name">Go to the gym</div>
+                    <div class="date">30/02/23</div>
+                </div>
+                <div class="goal" onclick="location.href='view_goal.html'">
+                    <div class="view" action>👁</div>
+                    <p class="name">Revise ADS implementations</p>
+                    <p class="date">30/02/23</p>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>2023© Peaky Goals™®</p>
+        </footer>
+    </div>
+</body>
+</html>

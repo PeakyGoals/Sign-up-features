@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Peaky Plan</title>
+</head>
+<body>
+    <div class="all">
+        <div class="container">
+            <form class="homeb" action="./goals.html">
+                <button class="button3">Back to Your Goals</button>
+            </form>
+            <h1>Your Peaky Plan</h1>
+            
+            <div id="edit_buttons">
+                <form action="">
+                    <button class="button2">Mark as Complete</button>
+                </form>
+                <form action="">
+                    <button class="button2">Delete goal</button>
+                </form>
+                
+            </div>
+            <div id="display_goals">
+                <div class="smart_display">
+                    <div class="smart_letter">S</div>
+                    <div class="smart_text">This is an example smart text which can be long if the user choses to, thus it wraps around.</div>
+                </div>
+                <div class="smart_display">
+                    <div class="smart_letter">M</div>
+                    <div class="smart_text">This is an example smart text which can be long if the user choses to, thus it wraps around.</div>
+                </div>
+                <div class="smart_display">
+                    <div class="smart_letter">A</div>
+                    <div class="smart_text">This is an example smart text which can be long if the user choses to, thus it wraps around.</div>
+                </div>
+                <div class="smart_display">
+                    <div class="smart_letter">R</div>
+                    <div class="smart_text">It can also be a short description...</div>
+                </div>
+                <div class="smart_display">
+                    <div class="smart_letter">T</div>
+                    <div class="smart_text">This is an example smart text which can be long if the user choses to, thus it wraps around.</div>
+                </div>
+            </div>
+            <div> 
+                <!-- to edit, it sends back to new goal page but javascript will insert the previous text -->
+                <form action="edit_goal.html" style="float:right;">
+                    <button class="button2">Edit SMART Goal</button>
+                </form>
+            </div>
+            <hr>
+
+            <div class="target_list">
+                
+                
+                
+                <div class="target_info">
+                    <div style="width:50%">
+                        <p>Drink min. 6 glasses of water a day</p>
+                    </div>
+                    
+                    <div style="font-style: italic;">
+                        Status 
+                        <input type="checkbox">
+                    </div>
+                    
+                </div>
+                <hr class="list-division">
+                <div class="target_info">
+                    <div style="width:50%">
+                        <p>Read 20 pages of Harry Potter tonight </p>
+                    </div>
+                    
+                    <div style="font-style: italic;">
+                        Status 
+                        <input type="checkbox">
+                    </div>
+                </div>
+
+                
+
+            </div>
+            <br>
+            <div class="add_target_section">
+                
+                <select name="type-of-target" onchange="targetTypeChange(this)">
+                    <option value="t_task">Task-related</option>
+                    <option value="t_bool">Boolean target (eg. done/ not done)</option>
+                    <option value="t_mon">Monetary (eg. saving X$ money)</option>
+                    <option value="t_num">Numeric target (eg. 8 cups of water)</option>
+                </select>
+                <textarea  type="text" style="resize: none;" placeholder="Type in your target for this goal"></textarea><br><br>
+                <div id="target_element_section"></div>
+                <div class="edit_button">
+                    <form action="">
+                        <button class="button2">Add new target</button>
+                    </form>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    function targetTypeChange(dropdown)
+    {
+        var val = dropdown.options[dropdown.selectedIndex].value;
+        
+        var el = document.getElementById("target_element");
+        if (el != null)
+            el.remove();
+        
+        var htmlContainer = document.getElementById('target_element_section');
+        var htmlContent = '';
+        switch (val) {
+            case "t_num": 
+                htmlContent = '<input type="range" min="1" max="100" value="50" class="slider" id="target_element">'
+                break;
+            case "t_bool":
+                htmlContent = '<p id="target_element">This element will show as complete/ not complete</p>'
+                break;
+            case "t_mon":
+                htmlContent = '<input id="target_element" type="text" placeholder="X$ (Financial Goal)"><br><br>'
+            
+        }
+        
+        htmlContainer.innerHTML = htmlContent;
+    }
+</script>
+    
+
+</html>
