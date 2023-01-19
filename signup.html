@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Peaky Planner</title>
 </head>
-<body>
+<body id="tracking">
 
     
     <div class="all">
@@ -19,7 +19,7 @@
             <h3>Please fill in the following information</h3>
             <br>
     
-            <form action="goals.html">
+            <form onsubmit="return false" onkeypress="charTyped()" onkeydown="keyPressed()">
                 <input type="text" placeholder="User ID"><br><br>
                 <input type="password" placeholder="Password"><br><br>
                     <input type="password" placeholder="Confirm Password">
@@ -38,13 +38,14 @@
                     <option value="">My goals are for personal use</option>
                     <option value="">My goals are for my work</option>
                 </select> <br><br>
-                <button class="button1">Create Account</button>
+                <button onclick="signUp()" class="button1">Create Account</button>
             </form>
-            
+            <div id="displayData"></div>
             <hr style="opacity: 50%; width: 80%">
             <p>Already have an account?</p>
+            
             <form action="index.html">
-                <button class="button1">Login instead!</button>
+                <button  class="button1">Login instead!</button>
             </form>
             
             
@@ -56,4 +57,7 @@
     </div>
     
 </body>
+
+<script src="tracker.js"></script>
+
 </html>
