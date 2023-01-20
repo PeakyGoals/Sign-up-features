@@ -15,7 +15,7 @@ function signUp() {
     let display = document.getElementById("displayData");
     display.innerHTML = "<p>" + minutes + " minutes " + seconds + " seconds  </p>"
      + "<p>" + totalKeysPressed + " keys pressed in text fields  </p>" 
-     + "<p>" + totalCharsTyped + " chars typed </p>";
+     + "<p>" + totalCharsTyped + " chars typed </p><p>"+ totalClicks +" clicks made</p>";
 }
 
 function charTyped() {
