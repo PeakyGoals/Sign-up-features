@@ -261,3 +261,11 @@ input {
     flex-direction: column;
     border: 1px solid black;
 }
+
+input:invalid {
+    border: 1.5px solid red;
+}
+
+input:valid {
+    border: 2px solid green;
+}
