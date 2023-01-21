@@ -1,4 +1,4 @@
-// Initiating 
+// Initiating all variables for input text and if validated or not boolean
 userid = false;
 useridValue = "";
 pwd = false;
@@ -19,18 +19,19 @@ languageValue = "";
 addressValue = "";
 aboutValue = "";
 
+// function per input that validates it
 function requireSex(obj) {
     if (obj.value.length > 0) {
         sex = true;
-        document.getElementById("sex").style.border = '2px solid green';
+        document.getElementById("sex").style.border = '2px solid green'; // make green
         sexValue = obj.value;
     }
     else {
         sex = false;
-        document.getElementById("sex").style.border = '2px solid red';
+        document.getElementById("sex").style.border = '2px solid red'; // make red
     }
 }
-
+// country validation
 function requireCountry(obj) {
     if (obj.value.length > 0) {
         country = true;
@@ -43,6 +44,7 @@ function requireCountry(obj) {
     }
 }
 
+// validate language
 function requireLang(obj) {
     if (obj.value.length > 0) {
         language = true;
@@ -55,6 +57,7 @@ function requireLang(obj) {
     }
 }
 
+// validate userid
 function validateUserID(obj) {
     if (obj.value.length > 4 && obj.value.length < 13 && obj.value.charAt(0) >= 'A' 
     && obj.value.charAt(0) <= 'Z' && obj.value.charAt(obj.value.length-1) >= '0' 
@@ -71,6 +74,7 @@ function validateUserID(obj) {
     }
 }
 
+// validate password
 function validatePwd(obj){  
     if (obj.value.length >= 12 && obj.value.search(/[a-z]/) >= 0 && obj.value.search(/[A-Z]/) >= 0 
     && obj.value.search(/[0-9]/) >= 0 && obj.value.search(/\W/) >= 0) {
@@ -89,6 +93,7 @@ function validatePwd(obj){
     }
 }
 
+// confirms password
 function confirmPwd(obj) {
     if (obj.value == pwdValue && obj.value.length > 0) {
         cnfm = true;
@@ -100,6 +105,7 @@ function confirmPwd(obj) {
     }
 }
 
+// validates zip
 function validateZip(obj) {
     if (obj.value.search("[0-9]{4}[A-Za-z]{2}") >= 0 && obj.value.length == 6){ 
         zip = true;
@@ -114,6 +120,7 @@ function validateZip(obj) {
     }
 }
 
+// validate email
 function validateEmail(obj){
     if (obj.value.match(".+@{1}.+\.{1}.+")) {
         email = true;
@@ -128,6 +135,7 @@ function validateEmail(obj){
     }
 }
 
+// validate name
 function validateName(obj) {
     if ((obj.value.search(/^[a-zA-Z ]+$/) >= 0)){
         personName = true;
@@ -142,20 +150,24 @@ function validateName(obj) {
     }
 }
 
+// stores address
 function storeAddress(obj){
     addressValue = obj.value;
 }
 
+// stores about info
 function storeAbout(obj){
     aboutValue = obj.value;
 }
 
+// main validation function which checks if all is validated, if yes then alert with values
 function validate() {
     if (userid && pwd && cnfm && personName && country && zip && sex && email && language){
         alert("You signed UP!\n You input the following:\n  - "+useridValue+"\n  - "+pwd+"\n  - "+nameValue+"\n  - "+addressValue+
         "\n  - "+countryValue+"\n  - "+ zipValue+"\n  - "+emailValue+"\n  - "+sexValue+"\n  - "+languageValue+"\n  - "+aboutValue);
     }
     else {
+        // else, highlight all that are wrong by re-validating them
         requireSex(document.getElementById("sex"));
         requireCountry(document.getElementById("country"));
         requireLang(document.getElementById("lang"));
