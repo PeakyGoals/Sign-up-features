@@ -1,19 +1,29 @@
+// Initiating 
 userid = false;
 useridValue = "";
 pwd = false;
 pwdValue = "";
 cnfm = false;
 personName = false;
+nameValue = "";
 country = false;
+countryValue = "";
 zip = false;
+zipValue = "";
 email = false;
+emailValue = "";
 sex = false;
+sexValue = "";
 language = false;
+languageValue = "";
+addressValue = "";
+aboutValue = "";
 
 function requireSex(obj) {
     if (obj.value.length > 0) {
         sex = true;
         document.getElementById("sex").style.border = '2px solid green';
+        sexValue = obj.value;
     }
     else {
         sex = false;
@@ -25,6 +35,7 @@ function requireCountry(obj) {
     if (obj.value.length > 0) {
         country = true;
         document.getElementById("country").style.border = '2px solid green';
+        countryValue = obj.value;
     }
     else {
         country = false;
@@ -36,6 +47,7 @@ function requireLang(obj) {
     if (obj.value.length > 0) {
         language = true;
         document.getElementById("lang").style.border = '2px solid green';
+        languageValue = obj.value;
     }
     else {
         language = false;
@@ -47,9 +59,10 @@ function validateUserID(obj) {
     if (obj.value.length > 4 && obj.value.length < 13 && obj.value.charAt(0) >= 'A' 
     && obj.value.charAt(0) <= 'Z' && obj.value.charAt(obj.value.length-1) >= '0' 
     && obj.value.charAt(obj.value.length-1) <= '9') {
-        language = true;
+        userid = true;
         document.getElementById("userid").style.border = '2px solid green';
         document.getElementById("tuserid").innerHTML = 'Looks good!';
+        useridValue = obj.value;
     } 
     else {
         userid = false;
@@ -92,6 +105,7 @@ function validateZip(obj) {
         zip = true;
         document.getElementById("zip").style.border = '2px solid green';
         document.getElementById("tzip").innerHTML = 'Looks good!';
+        zipValue = obj.value;
     }
     else {
         zip = false;
@@ -105,6 +119,7 @@ function validateEmail(obj){
         email = true;
         document.getElementById("email").style.border = '2px solid green';
         document.getElementById("temail").innerHTML = 'Looks good!';
+        emailValue = obj.value;
     }
     else {
         email = false;
@@ -118,6 +133,7 @@ function validateName(obj) {
         personName = true;
         document.getElementById("name").style.border = '2px solid green';
         document.getElementById("tname").innerHTML = 'Looks good!';
+        nameValue = obj.value;
     }
     else {
         personName = false;
@@ -126,9 +142,18 @@ function validateName(obj) {
     }
 }
 
+function storeAddress(obj){
+    addressValue = obj.value;
+}
+
+function storeAbout(obj){
+    aboutValue = obj.value;
+}
+
 function validate() {
     if (userid && pwd && cnfm && personName && country && zip && sex && email && language){
-        alert("You signed UP!");
+        alert("You signed UP!\n You input the following:\n  - "+useridValue+"\n  - "+pwd+"\n  - "+nameValue+"\n  - "+addressValue+
+        "\n  - "+countryValue+"\n  - "+ zipValue+"\n  - "+emailValue+"\n  - "+sexValue+"\n  - "+languageValue+"\n  - "+aboutValue);
     }
     else {
         requireSex(document.getElementById("sex"));

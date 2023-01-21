@@ -27,7 +27,7 @@
                 <p id="tpwd" class="info-box"></p><br>
                 <input id="name" onkeyup="validateName(this)" type="text" placeholder="Name">
                 <p id="tname" class="info-box"></p><br>
-                <input id="address" type="text" placeholder="Address"><br><br>
+                <input id="address" onkeyup="storeAddress(this)" type="text" placeholder="Address"><br><br>
                 <input id="country" onkeyup="requireCountry(this)" type="text" placeholder="Country"><br><br>
                 <input id="zip" onkeyup="validateZip(this)" type="text" placeholder="Zip Code">
                 <p id="tzip" class="info-box"></p><br>
@@ -35,7 +35,7 @@
                 <p id="temail" class="info-box"></p><br>
                 <input id="sex" onkeyup="requireSex(this)" type="text" placeholder="Sex"><br><br>
                 <input id="lang" onkeyup="requireLang(this)" type="text" placeholder="Language"><br><br>
-                <textarea type="text" style="height: 40px" placeholder="A small description about you :)"></textarea><br><br>
+                <textarea type="text" onkeyup="storeAbout(this)" style="height: 60px; resize: none;" placeholder="A small description about you :)"></textarea><br><br>
                 
                 <select name="use-of-app">
                     <option value="">My goals are for personal use</option>
