@@ -37,9 +37,9 @@
                 <input id="lang" onkeyup="requireLang(this)" type="text" placeholder="Language"><br><br>
                 <textarea type="text" onkeyup="storeAbout(this)" style="height: 60px; resize: none;" placeholder="A small description about you :)"></textarea><br><br>
                 
-                <select name="use-of-app">
-                    <option value="">My goals are for personal use</option>
-                    <option value="">My goals are for my work</option>
+                <select id="options" name="use-of-app">
+                    <option value="My goals are for personal use">My goals are for personal use</option>
+                    <option value="My goals are for my work">My goals are for my work</option>
                 </select> <br><br>
                 <button onclick="signUp();validate();" class="button1">Create Account</button>
             </form>
