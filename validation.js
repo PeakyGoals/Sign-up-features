@@ -59,7 +59,7 @@ function validateUserID(obj) {
 function validatePwd(obj){  
     if (obj.value.length >= 12 && obj.value.search(/[a-z]/) >= 0 && obj.value.search(/[A-Z]/) >= 0 
     && obj.value.search(/[0-9]/) >= 0 && obj.value.search(/\W/) >= 0) {
-        document.getElementById("pwd").style.border = '2px solid orange';
+        document.getElementById("pwd").style.border = '3px solid orange';
         if(obj.value.length >= 14){
             document.getElementById("pwd").style.border = '2px solid green';
         }
@@ -73,7 +73,7 @@ function validatePwd(obj){
 }
 
 function confirmPwd(obj) {
-    if (obj.value == pwdValue) {
+    if (obj.value == pwdValue && obj.value.length > 0) {
         cnfm = true;
         document.getElementById("cpwd").style.border = '2px solid green';
     }
@@ -119,5 +119,16 @@ function validateName(obj) {
 function validate() {
     if (userid && pwd && cnfm && personName && country && zip && sex && email && language){
         alert("You signed UP!");
+    }
+    else {
+        requireSex(document.getElementById("sex"));
+        requireCountry(document.getElementById("country"));
+        requireLang(document.getElementById("lang"));
+        validateUserID(document.getElementById("userid"));
+        validatePwd(document.getElementById("pwd"));
+        confirmPwd(document.getElementById("cpwd"));
+        validateEmail(document.getElementById("email"));
+        validateZip(document.getElementById("zip"));
+        validateName(document.getElementById("name"));
     }
 }
