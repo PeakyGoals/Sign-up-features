@@ -67,7 +67,7 @@ function validateUserID(obj) {
     else {
         userid = false;
         document.getElementById("userid").style.border = '2px solid red';
-        document.getElementById("tuserid").innerHTML = 'UserID must start with an Uppercase and end with a number or special character';
+        document.getElementById("tuserid").innerHTML = 'UserID must be 5-12 chars long and start with an Uppercase and end with a number or special char';
     }
 }
 
@@ -85,7 +85,7 @@ function validatePwd(obj){
     else {
         pwd = false;
         document.getElementById("pwd").style.border = '2px solid red';
-        document.getElementById("tpwd").innerHTML = 'Password must include at least one Uppercase, lowercase, number, and symbol';
+        document.getElementById("tpwd").innerHTML = 'Password should be longer than 1 chars (14 or more preferably), and must include at least one Uppercase, lowercase, number, and symbol';
     }
 }
 
@@ -101,7 +101,7 @@ function confirmPwd(obj) {
 }
 
 function validateZip(obj) {
-    if (obj.value.search("[0-9]{4}[A-Z]{2}") >= 0 && obj.value.length == 6){ 
+    if (obj.value.search("[0-9]{4}[A-Za-z]{2}") >= 0 && obj.value.length == 6){ 
         zip = true;
         document.getElementById("zip").style.border = '2px solid green';
         document.getElementById("tzip").innerHTML = 'Looks good!';
@@ -110,7 +110,7 @@ function validateZip(obj) {
     else {
         zip = false;
         document.getElementById("zip").style.border = '2px solid red';
-        document.getElementById("tzip").innerHTML = 'Format for the netherlands: four number, two uppercase letters';
+        document.getElementById("tzip").innerHTML = 'Format for the netherlands: four numbers, two letters';
     }
 }
 
