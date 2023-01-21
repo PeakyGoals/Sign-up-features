@@ -165,7 +165,7 @@ function validate() {
     if (userid && pwd && cnfm && personName && country && zip && sex && email && language){
         let el = document.getElementById("options");
         let selected = el.value;
-        alert("You signed UP!\n You input the following:\n  - "+useridValue+"\n  - "+pwd+"\n  - "+nameValue+"\n  - "+addressValue+
+        alert("You signed UP!\n You input the following:\n  - "+useridValue+"\n  - "+pwdValue+"\n  - "+nameValue+"\n  - "+addressValue+
         "\n  - "+countryValue+"\n  - "+ zipValue+"\n  - "+emailValue+"\n  - "+sexValue+"\n  - "+languageValue+"\n  - "+aboutValue+
         "\n  - "+selected);
     }
