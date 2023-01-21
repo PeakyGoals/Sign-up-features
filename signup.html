@@ -21,18 +21,18 @@
     
             <form onsubmit="return false" onkeypress="charTyped()" onkeyup="keyPressed()">
                 <input id="userid" onkeyup="validateUserID(this)" type="text" placeholder="User ID">
-                <p class="info-box">UserID must start with an Uppercase and end with a number or special character</p><br>
+                <p id="tuserid" class="info-box"></p><br>
                 <input id="pwd" onkeyup="validatePwd(this)" type="password" placeholder="Password"><br><br>
                 <input id="cpwd" onkeyup="confirmPwd(this)" type="password" placeholder="Confirm Password">
-                <p class="info-box">Password must include at least one Uppercase, lowercase, number, and symbol</p><br>
+                <p id="tpwd" class="info-box"></p><br>
                 <input id="name" onkeyup="validateName(this)" type="text" placeholder="Name">
-                <p class="info-box">Only include letters and spaces</p><br>
+                <p id="tname" class="info-box"></p><br>
                 <input id="address" type="text" placeholder="Address"><br><br>
                 <input id="country" onkeyup="requireCountry(this)" type="text" placeholder="Country"><br><br>
                 <input id="zip" onkeyup="validateZip(this)" type="text" placeholder="Zip Code">
-                <p class="info-box">Format for the netherlands: four number, two uppercase letters</p><br>
+                <p id="tzip" class="info-box"></p><br>
                 <input id="email" onkeyup="validateEmail(this)" type="text" placeholder="Email">
-                <p class="info-box">Please input a valid email address</p><br>
+                <p id="temail" class="info-box"></p><br>
                 <input id="sex" onkeyup="requireSex(this)" type="text" placeholder="Sex"><br><br>
                 <input id="lang" onkeyup="requireLang(this)" type="text" placeholder="Language"><br><br>
                 <textarea type="text" style="height: 40px" placeholder="A small description about you :)"></textarea><br><br>

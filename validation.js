@@ -49,10 +49,12 @@ function validateUserID(obj) {
     && obj.value.charAt(obj.value.length-1) <= '9') {
         language = true;
         document.getElementById("userid").style.border = '2px solid green';
+        document.getElementById("tuserid").innerHTML = 'Looks good!';
     } 
     else {
         userid = false;
         document.getElementById("userid").style.border = '2px solid red';
+        document.getElementById("tuserid").innerHTML = 'UserID must start with an Uppercase and end with a number or special character';
     }
 }
 
@@ -65,10 +67,12 @@ function validatePwd(obj){
         }
         pwd = true;
         pwdValue = obj.value;
+        document.getElementById("tpwd").innerHTML = 'Looks good!';
     }
     else {
         pwd = false;
         document.getElementById("pwd").style.border = '2px solid red';
+        document.getElementById("tpwd").innerHTML = 'Password must include at least one Uppercase, lowercase, number, and symbol';
     }
 }
 
@@ -87,10 +91,12 @@ function validateZip(obj) {
     if (obj.value.search("[0-9]{4}[A-Z]{2}") >= 0 && obj.value.length == 6){ 
         zip = true;
         document.getElementById("zip").style.border = '2px solid green';
+        document.getElementById("tzip").innerHTML = 'Looks good!';
     }
     else {
         zip = false;
         document.getElementById("zip").style.border = '2px solid red';
+        document.getElementById("tzip").innerHTML = 'Format for the netherlands: four number, two uppercase letters';
     }
 }
 
@@ -98,10 +104,12 @@ function validateEmail(obj){
     if (obj.value.match(".+@{1}.+\.{1}.+")) {
         email = true;
         document.getElementById("email").style.border = '2px solid green';
+        document.getElementById("temail").innerHTML = 'Looks good!';
     }
     else {
         email = false;
         document.getElementById("email").style.border = '2px solid red';
+        document.getElementById("temail").innerHTML = 'Please input a valid email address';
     }
 }
 
@@ -109,10 +117,12 @@ function validateName(obj) {
     if ((obj.value.search(/^[a-zA-Z ]+$/) >= 0)){
         personName = true;
         document.getElementById("name").style.border = '2px solid green';
+        document.getElementById("tname").innerHTML = 'Looks good!';
     }
     else {
         personName = false;
         document.getElementById("name").style.border = '2px solid red';
+        document.getElementById("tname").innerHTML = 'Only include letters and spaces';
     }
 }
 
