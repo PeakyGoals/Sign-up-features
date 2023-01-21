@@ -86,6 +86,7 @@ hr {
 
 input {
     text-align: center;
+    outline: none;
 }
 
 .button1 {
