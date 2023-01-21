@@ -20,9 +20,9 @@
             <br>
     
             <form onsubmit="return false" onkeypress="charTyped()" onkeydown="keyPressed()">
-                <input required="required" minlength="5" maxlength="12" type="text" placeholder="User ID" pattern="[A-Z]{1}.{3,10}[\W0-9]{1}"> *<br><br>
-                <input required="required" minlength="12" type="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{12,}"> *<br><br>
-                <input required="required" minlength="12" type="password" placeholder="Confirm Password"> *
+                <input required="required" type="text" placeholder="User ID" pattern="[A-Z]{1}.{3,10}[\W0-9]{1}"> *<br><br>
+                <input required="required" type="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{12,}"> *<br><br>
+                <input required="required" type="password" placeholder="Confirm Password"> *
                 <p class="info-box">Your password must include Uppercase, lowercase, numbers, and symbol</p>
                 <br>
                 <input required="required" type="text" placeholder="Name" pattern="[A-Za-z ]{1,}"> *<br><br>
