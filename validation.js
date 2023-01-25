@@ -75,9 +75,24 @@ function validateUserID(obj) {
 }
 
 // validate password
-function validatePwd(obj){  
-    if (obj.value.length >= 12 && obj.value.search(/[a-z]/) >= 0 && obj.value.search(/[A-Z]/) >= 0 
-    && obj.value.search(/[0-9]/) >= 0 && obj.value.search(/\W/) >= 0) {
+function validatePwd(obj){
+    let low = false;
+    let high = false;
+    let num = false;
+    let special = false;
+    for(let i = 0; i < obj.value.length; i++){
+        if (obj.value.charAt(i) >= 'A' && obj.value.charAt(i) <= 'Z'){
+            high = true;
+        } else if (obj.value.charAt(i) >= 'a' && obj.value.charAt(i) <= 'z'){
+            low = true;
+        } else if (obj.value.charAt(i) >= '0' && obj.value.charAt(i) <= '9'){
+            num = true;
+        } else {
+            special = true;
+        }
+    }
+
+    if (obj.value.length >= 12 && high && low && num && special) {
         document.getElementById("pwd").style.border = '3px solid orange';
         if(obj.value.length >= 14){
             document.getElementById("pwd").style.border = '2px solid green';
@@ -93,7 +108,7 @@ function validatePwd(obj){
     }
 }
 
-// confirms password
+// Confirms password
 function confirmPwd(obj) {
     if (obj.value == pwdValue && obj.value.length > 0) {
         cnfm = true;
@@ -107,7 +122,20 @@ function confirmPwd(obj) {
 
 // validates zip
 function validateZip(obj) {
-    if (obj.value.search("[0-9]{4}[A-Za-z]{2}") >= 0 && obj.value.length == 6){ 
+    let count = 0;
+    for(let i = 0; i< obj.value.length;i++){
+        if (i>3 && i<6){
+            if ((obj.value.charAt(i) >= 'a' && obj.value.charAt(i) <= 'z') 
+            || (obj.value.charAt(i) >= 'A' && obj.value.charAt(i) <= 'Z')){
+                count++;
+            }
+        } else {
+            if (obj.value.charAt(i) >= '0' && obj.value.charAt(i) <= '9'){
+                count++;
+            }
+        }
+    }
+    if (count == 6 && obj.value.length == 6){ 
         zip = true;
         document.getElementById("zip").style.border = '2px solid green';
         document.getElementById("tzip").innerHTML = 'Looks good!';
@@ -122,7 +150,20 @@ function validateZip(obj) {
 
 // validate email
 function validateEmail(obj){
-    if (obj.value.match(".+@{1}.+\.{1}.+")) {
+    let andperc = 0;
+    let point = false;
+
+    for (let i = 0; i< obj.value.length; i++){
+        if (i>0 && obj.value.charAt(i) == '@'){
+            andperc = i;
+        }
+        if (andperc != i && obj.value.charAt(i) == '.' && i > (andperc+1) && i != obj.value.length-1){
+            point = true;
+        }
+
+    }
+
+    if (andperc!= 0 && point) {
         email = true;
         document.getElementById("email").style.border = '2px solid green';
         document.getElementById("temail").innerHTML = 'Looks good!';
@@ -137,8 +178,16 @@ function validateEmail(obj){
 
 // validate name
 function validateName(obj) {
-    if ((obj.value.search(/^[a-zA-Z ]+$/) >= 0)){
-        personName = true;
+    personName = true;
+    for (let i = 0; i< obj.value.length ; i++){
+        if (!((obj.value.charAt(i) >= 'a' && obj.value.charAt(i) <= 'z') 
+            || (obj.value.charAt(i) >= 'A' && obj.value.charAt(i) <= 'Z' 
+            || obj.value.charAt(i) == ' '))){
+                personName = false;
+            }
+    }
+
+    if (personName && obj.value.length > 0){
         document.getElementById("name").style.border = '2px solid green';
         document.getElementById("tname").innerHTML = 'Looks good!';
         nameValue = obj.value;
